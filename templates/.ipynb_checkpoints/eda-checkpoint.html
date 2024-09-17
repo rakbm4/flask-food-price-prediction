@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDA - Food Price Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='eda_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Exploratory Data Analysis</h1>
+        <h2>Average Price Over Time</h2>
+        <img src="{{ url_for('static', filename='eda_price_over_time.png') }}" alt="Average Price Over Time">
+
+        <h2>Price Distribution</h2>
+        <img src="{{ url_for('static', filename='eda_price_distribution.png') }}" alt="Price Distribution">
+
+        <h2>Average Price by Category</h2>
+        <img src="{{ url_for('static', filename='eda_price_by_category.png') }}" alt="Average Price by Category">
+
+        <h2>Average Price by Province</h2>
+        <img src="{{ url_for('static', filename='eda_price_by_province.png') }}" alt="Average Price by Province">
+
+        <h2>Average Price by Month</h2>
+        <img src="{{ url_for('static', filename='eda_price_by_month.png') }}" alt="Average Price by Month">
+
+        <h2>Category Count Distribution</h2>
+        <img src="{{ url_for('static', filename='eda_category_count_distribution.png') }}" alt="Category Count Distribution">
+
+        <h2>Commodity Price Distribution</h2>
+        <img src="{{ url_for('static', filename='eda_commodity_price_boxplot.png') }}" alt="Commodity Price Distribution">
+
+        <a href="{{ url_for('home') }}">Back to Prediction Page</a>
+    </div>
+</body>
+</html>

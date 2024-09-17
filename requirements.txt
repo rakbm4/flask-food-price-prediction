@@ -1,0 +1,7 @@
+Flask
+pandas
+matplotlib
+seaborn
+gunicorn # For serving the app in production
+joblib
+gdown

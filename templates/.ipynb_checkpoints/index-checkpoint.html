@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Price Prediction</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='prediction_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>SRN : 345</h1>
+        <h1>Food Price Prediction</h1>
+        <form action="/predict" method="POST" id="predictionForm">
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" placeholder="Enter year (e.g., 2021)" required>
+
+            <label for="month">Month:</label>
+            <input type="number" id="month" name="month" placeholder="Enter month (1-12)" required>
+
+            <label for="province">Province:</label>
+            <select id="province" name="province" required>
+                <option value="" disabled selected>Select your province</option>
+                {% for province in provinces %}
+                <option value="{{ province }}">{{ province }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="" disabled selected>Select your category</option>
+                {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="commodity">Commodity:</label>
+            <select id="commodity" name="commodity" required>
+                <option value="" disabled selected>Select your commodity</option>
+                {% for commodity in commodities %}
+                <option value="{{ commodity }}">{{ commodity }}</option>
+                {% endfor %}
+            </select>
+                
+            <div class="button-group">
+                <input type="submit" value="Predict">
+                <input type="reset" value="Reset" onclick="clearPrediction()">
+            </div>
+        </form>
+
+        {% if prediction_text %}
+        <h2 id="predictionResult">{{ prediction_text }}</h2>
+        {% endif %}
+
+        <a href="{{ url_for('eda') }}">View Exploratory Data Analysis (EDA)</a>
+    </div>
+
+    <!-- JavaScript to clear the predicted price when the reset button is clicked -->
+    <script>
+        function clearPrediction() {
+            // Clear the predicted price
+            document.getElementById('predictionResult').innerText = '';
+        }
+    </script>
+</body>
+</html>
