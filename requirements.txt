@@ -5,3 +5,4 @@ seaborn
 gunicorn # For serving the app in production
 joblib
 gdown
+scikit-learn
